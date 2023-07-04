@@ -1,4 +1,4 @@
-## Completed Lyft Back-End engineering Virtual experience program
+## Lyft Back-End engineering Virtual experience program
 
 ## Table of contents
 
