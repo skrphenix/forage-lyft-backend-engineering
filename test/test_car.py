@@ -4,6 +4,8 @@ from datetime import date
 from car import Car
 from engine.capulet_engine import CapuletEngine
 from battery.spindler_battery import SpindlerBattery
+from tires.carrigan_tires import CarriganTires
+from tires.octoprime_tires import OctoprimeTires
 
 
 class TestCarService(unittest.TestCase):
@@ -13,7 +15,9 @@ class TestCarService(unittest.TestCase):
         current_date = date.today()
         last_service_date = current_date.replace(year=current_date.year - 10)
         battery = SpindlerBattery(last_service_date, current_date)
-        car = Car(engine, battery)
+        tires = CarriganTires([0.1, 0.2, 0.2, 0.1])
+
+        car = Car(engine, battery, tires)
         self.assertTrue(car.needs_service())
 
     def test_car_should_not_be_serviced(self):
@@ -22,7 +26,9 @@ class TestCarService(unittest.TestCase):
         current_date = date.today()
         last_service_date = current_date.replace(current_date.year - 1)
         battery = SpindlerBattery(last_service_date, current_date)
-        car = Car(engine, battery)
+        tires = OctoprimeTires([0.1, 0.2, 0.2, 0.1])
+
+        car = Car(engine, battery, tires)
         self.assertFalse(car.needs_service())
 
 
