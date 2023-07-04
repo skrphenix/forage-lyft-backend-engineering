@@ -6,14 +6,14 @@ from battery.nubbin_battery import NubbinBattery
 
 
 class TestSpindlerBattery(unittest.TestCase):
-    def test_engine_should_be_serviced(self):
+    def test_battery_should_be_serviced(self):
         current_date = date.today()
         last_service_date = current_date.replace(year=current_date.year - 10)
 
         battery = SpindlerBattery(last_service_date, current_date)
         self.assertTrue(battery.needs_service())
 
-    def test_engine_should_not_be_serviced(self):
+    def test_battery_should_not_be_serviced(self):
         current_date = date.today()
         last_service_date = current_date.replace(year=current_date.year - 1)
 
@@ -22,14 +22,14 @@ class TestSpindlerBattery(unittest.TestCase):
 
 
 class TestNubbinBattery(unittest.TestCase):
-    def test_engine_should_be_serviced(self):
+    def test_battery_should_be_serviced(self):
         current_date = date.today()
         last_service_date = current_date.replace(year=current_date.year - 10)
 
         battery = NubbinBattery(last_service_date, current_date)
         self.assertTrue(battery.needs_service())
 
-    def test_engine_should_not_be_serviced(self):
+    def test_battery_should_not_be_serviced(self):
         current_date = date.today()
         last_service_date = current_date.replace(year=current_date.year - 1)
 
